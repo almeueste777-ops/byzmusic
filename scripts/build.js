@@ -58,16 +58,24 @@ function run() {
     // Pre-injectare date de bază în HTML pentru viteza de încărcare
     html = html
       .replace(
-        /<h1 id="score-title".*?>.*?<\/h1>/,
+        /<h1 id="score-title".*?>.*?<\/h1>/s,
         `<h1 id="score-title" class="hero-title" style="text-align: left; font-size: 2.2rem; margin-bottom: 0.25rem;">${escapeHtml(score.titlu)}</h1>`
       )
       .replace(
-        /<span id="badge-glas".*?>.*?<\/span>/,
+        /<span id="badge-glas".*?>.*?<\/span>/s,
         `<span id="badge-glas" class="badge-glas">🎵 ${escapeHtml(score.glas)}</span>`
       )
       .replace(
-        /<span id="badge-cat".*?>.*?<\/span>/,
+        /<span id="badge-cat".*?>.*?<\/span>/s,
         `<span id="badge-cat" class="badge-cat">${escapeHtml(score.categorie)}</span>`
+      )
+      .replace(
+        /<div id="meta-autor".*?>.*?<\/div>/s,
+        `<div id="meta-autor" style="font-weight: 600;">${escapeHtml(score.autor || 'Tradițional')}</div>`
+      )
+      .replace(
+        /<div id="meta-slujba".*?>.*?<\/div>/s,
+        `<div id="meta-slujba" style="font-weight: 600;">${escapeHtml(score.slujba || 'Bisericească')}</div>`
       );
 
     const outPath = path.join(OUTPUT_DIR, `${score.id}.html`);
