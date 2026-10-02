@@ -152,8 +152,8 @@ function updatePreviewAndCode() {
   }
 
   // Actualizare YouTube Preview
-  const origin = window.location.origin;
-  const scoreUrl = `${origin}/partitura.html?id=${encodeURIComponent(data.id)}`;
+  const basePath = window.location.pathname.replace(/\/[^\/]*$/, '');
+  const scoreUrl = `${window.location.origin}${basePath}/partitura.html?id=${encodeURIComponent(data.id)}`;
   const ytText = `Partitura o găsești aici: ${scoreUrl}`;
   
   const ytPreviewEl = document.getElementById('preview-yt-text');
