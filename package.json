@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "build": "node scripts/build.js",
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "deploy": "wrangler pages deploy . --project-name=byzmusic --branch=main",
+    "preview": "npx serve ."
   },
   "keywords": [
     "byzantine",
@@ -16,5 +18,8 @@
     "cloudflare-pages"
   ],
   "author": "almeueste777-ops",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^4.146.0"
+  }
 }
