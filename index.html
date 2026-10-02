@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByzMusic — Partituri de Muzică Bizantină & Psaltică</title>
+  <meta name="description" content="Biblioteca digitală de partituri bizantine și psaltice. Descarcă partituri în format PDF pentru cântările din videoclipurile YouTube.">
+  <meta property="og:title" content="ByzMusic — Partituri de Muzică Bizantină & Psaltică">
+  <meta property="og:description" content="Biblioteca digitală de partituri psaltice în format PDF pentru coruri, cântăreți și iubitori ai muzicii bisericești.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigație -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <img src="assets/img/logo.svg" alt="ByzMusic Logo" width="36" height="36" style="border-radius: 8px;">
+        </div>
+        <div class="brand-text">
+          <h1>BYZMUSIC</h1>
+          <span>Partituri Bizantine</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">📚 Bibliotecă</a></li>
+          <li><a href="adauga.html" class="nav-link">➕ Adaugă Partitură</a></li>
+          <li>
+            <button id="theme-toggle" class="btn-icon" title="Comută modul întunecat/luminos" aria-label="Temă">
+              🌙
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-ornament">☩ ☩ ☩</div>
+      <h2 class="hero-title">Partituri de Muzică Psaltică</h2>
+      <p class="hero-subtitle">
+        „Lăudați pe Domnul în strune și în organe, lăudați-L în chimvale bine-răsunătoare”
+      </p>
+
+      <!-- Bara de Căutare Rapidă -->
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Caută după titlu, glas, compozitor (ex: Nafpliotis, Glas 1, Axion)..."
+          autocomplete="off"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Conținut Principal -->
+  <main class="container">
+    <!-- Secțiune Filtre -->
+    <section class="filters-section">
+      <!-- Filtrare după Glas -->
+      <div class="filter-group">
+        <span class="filter-label">Filtrează după Glas:</span>
+        <div class="chips-container">
+          <button class="chip active" data-filter-glas="toate">Toate Glasurile</button>
+          <button class="chip" data-filter-glas="glas 1">Glasul 1</button>
+          <button class="chip" data-filter-glas="glas 2">Glasul 2</button>
+          <button class="chip" data-filter-glas="glas 3">Glasul 3</button>
+          <button class="chip" data-filter-glas="glas 4">Glasul 4</button>
+          <button class="chip" data-filter-glas="glas 5">Glasul 5</button>
+          <button class="chip" data-filter-glas="glas 6">Glasul 6</button>
+          <button class="chip" data-filter-glas="glas 7">Glasul 7 (Varil)</button>
+          <button class="chip" data-filter-glas="glas 8">Glasul 8</button>
+        </div>
+      </div>
+
+      <!-- Filtrare după Categorie -->
+      <div class="filter-group">
+        <span class="filter-label">Filtrează după Categorie:</span>
+        <div class="chips-container">
+          <button class="chip active" data-filter-cat="toate">Toate Categoriile</button>
+          <button class="chip" data-filter-cat="Axioane">Axioane</button>
+          <button class="chip" data-filter-cat="Heruvice">Heruvice</button>
+          <button class="chip" data-filter-cat="Polieleu">Polieleu</button>
+          <button class="chip" data-filter-cat="Chinonice">Chinonice</button>
+          <button class="chip" data-filter-cat="Luminânde">Luminânde</button>
+          <button class="chip" data-filter-cat="Vecernie">Vecernie</button>
+          <button class="chip" data-filter-cat="Sfânta Liturghie">Sfânta Liturghie</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Header Catalog & Număr Partituri -->
+    <div class="catalog-header">
+      <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--primary);">
+        Catalog Partituri
+      </h3>
+      <span id="scores-count" class="scores-count">Se încarcă...</span>
+    </div>
+
+    <!-- Grilă de Partituri -->
+    <div id="scores-grid" class="scores-grid">
+      <!-- Se populează dinamic prin assets/js/app.js -->
+    </div>
+
+    <!-- Ghid Utilizare YouTube -->
+    <section class="youtube-creator-banner" style="margin-bottom: 3.5rem;">
+      <div class="yt-banner-header">
+        <div>
+          <h4 style="font-size: 1.1rem; color: var(--gold); display: flex; align-items: center; gap: 0.5rem;">
+            <span>💡</span> Cum adaugi link-ul partiturii în descrierea YouTube
+          </h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.25rem;">
+            Pe fiecare card de mai sus ai butonul <strong>„📋 Copiază link pt. YouTube”</strong>. Apasă-l și lipește textul direct în descrierea videoclipului tău pe YouTube Studio!
+          </p>
+        </div>
+        <a href="adauga.html" class="btn btn-primary" style="white-space: nowrap;">
+          ➕ Adaugă Partitură Nouă
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Subsol -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand-text">
+        <strong style="color: var(--primary); font-family: var(--font-display);">BYZMUSIC</strong>
+        <p class="footer-text">Partituri de muzică psaltică și bizantină pentru cult și studiu.</p>
+      </div>
+      <div class="footer-text">
+        Proiect găzduit pe Cloudflare Pages & GitHub.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polieleu „Robii Domnului” (Glasul 5) — ByzMusic</title>
+  <meta name="description" content="Cântare de laudă din slujba Utreniei la duminici și mari praznice împărătești.">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/logo.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigație -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="brand">
+        <div class="brand-icon">
+          <img src="../assets/img/logo.svg" alt="ByzMusic Logo" width="36" height="36" style="border-radius: 8px;">
+        </div>
+        <div class="brand-text">
+          <h1>BYZMUSIC</h1>
+          <span>Partituri Bizantine</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">← Înapoi la Bibliotecă</a></li>
+          <li><a href="../adauga.html" class="nav-link">➕ Adaugă Partitură</a></li>
+          <li>
+            <button id="theme-toggle" class="btn-icon" title="Comută modul întunecat/luminos" aria-label="Temă">
+              🌙
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="score-main-container">
+    <!-- Header Partitură -->
+    <article class="score-header-box">
+      <nav class="breadcrumbs" aria-label="Traseu de navigare">
+        <a href="../index.html">Bibliotecă</a>
+        <span>›</span>
+        <span id="breadcrumb-cat">Partituri</span>
+      </nav>
+
+      <div style="display: flex; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+        <span id="badge-glas" class="badge-glas">🎵 Glasul 5</span>
+        <span id="badge-cat" class="badge-cat">Polieleu</span>
+      </div>
+
+      <h1 id="score-title" class="hero-title" style="text-align: left; font-size: 2.2rem; margin-bottom: 0.25rem;">
+        Se încarcă partitura...
+      </h1>
+      <p id="score-subtitle" class="card-subtitle" style="font-size: 1.05rem; margin-bottom: 1.25rem;">
+        ...
+      </p>
+
+      <!-- Metadate Partitură -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); margin-bottom: 1.5rem;">
+        <div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Autor / Melos</span>
+          <div id="meta-autor" style="font-weight: 600;">—</div>
+        </div>
+        <div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Slujbă / Rânduială</span>
+          <div id="meta-slujba" style="font-weight: 600;">—</div>
+        </div>
+        <div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Notație</span>
+          <div id="meta-notatie" style="font-weight: 600;">—</div>
+        </div>
+        <div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Dimensiune</span>
+          <div id="meta-pagini" style="font-weight: 600;">—</div>
+        </div>
+      </div>
+
+      <!-- Creator YouTube Banner Helper -->
+      <div class="youtube-creator-banner">
+        <div class="yt-banner-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="yt-badge">▶ YOUTUBE</span>
+            <strong>Text pentru descrierea videoclipului:</strong>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">
+            Copiază acest text și pune-l în descrierea videoclipului tău
+          </span>
+        </div>
+        <div class="yt-copy-input-group">
+          <input type="text" id="yt-copy-input" class="yt-copy-input" readonly value="">
+          <button id="yt-copy-btn" class="btn btn-primary" style="white-space: nowrap;">
+            📋 Copiază Textul
+          </button>
+        </div>
+      </div>
+
+      <p id="score-descriere" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-top: 0.5rem;">
+      </p>
+    </article>
+
+    <!-- Secțiune Video YouTube (opțională) -->
+    <section id="video-section" class="video-card" style="display: none;">
+      <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span>▶</span> Înregistrare Video / Interpretare
+      </h3>
+      <div class="video-container">
+        <iframe id="video-frame" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Secțiune Vizualizator PDF -->
+    <section class="pdf-viewer-card">
+      <div class="pdf-toolbar">
+        <div class="pdf-toolbar-title">
+          <span>📜</span> Vizualizare Partitură (PDF)
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <a id="btn-open-pdf" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">
+            ↗ Deschide în Filă Nouă
+          </a>
+          <a id="btn-download-pdf" href="#" download class="btn btn-primary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">
+            📥 Descarcă Partitura PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="pdf-frame-wrapper">
+        <iframe id="pdf-frame" class="pdf-frame" src="" title="Vizualizator Partitură PDF"></iframe>
+      </div>
+
+      <div style="padding: 1rem; background: var(--bg-page); border-top: 1px solid var(--border); text-align: center; font-size: 0.88rem; color: var(--text-muted);">
+        Dacă vizualizatorul nu se încarcă pe mobil, 
+        <a id="pdf-fallback-link" href="#" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: underline;">
+          apasă aici pentru a deschide sau descărca direct fișierul PDF
+        </a>.
+      </div>
+    </section>
+
+    <!-- Partituri Recomandate -->
+    <section id="related-section" style="margin: 3.5rem 0 2rem;">
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--primary); margin-bottom: 1.25rem;">
+        Alte Partituri Similare
+      </h3>
+      <div id="related-grid" class="scores-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      </div>
+    </section>
+  </main>
+
+  <!-- Subsol -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand-text">
+        <strong style="color: var(--primary); font-family: var(--font-display);">BYZMUSIC</strong>
+        <p class="footer-text">Partituri de muzică psaltică și bizantină pentru cult și studiu.</p>
+      </div>
+      <div class="footer-text">
+        <a href="../index.html" style="color: var(--primary); text-decoration: none;">← Înapoi la Catalog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/score.js"></script>
+</body>
+</html>
